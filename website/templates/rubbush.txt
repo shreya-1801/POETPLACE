@@ -1,0 +1,94 @@
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbar">
+                <span class="navbar-toggler-icon"> </span>
+                </button>
+                <div class=" collapse navbar-collapse" id="navbar">
+                  <div class="navbar-nav">
+                    <a class="nav-item nav-link" id="login" href="/login"> Login </a>
+                    <a class="nav-item nav-link" id="signUp" href="/login"> Sign-Up </a>
+                    <a class="nav-item nav-link" id="logout" href="/login"> Logout </a>
+                    <a class="nav-item nav-link" id="home" href="/"> Home </a>
+                  </div>
+                </div>
+        </nav>
+
+
+
+old home.html
+
+{% extends "base.html" %} 
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h1 align="center"> Notes </h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+
+    <li class="list-group-item"> {{ note.data }}
+        <button type="button" class="close" onClick=" deleteNote({{ note.id }})">
+            <span aria-hidden="true"> &times; </span>
+        </button>
+            
+        
+    
+    </li>
+
+
+    {% endfor %}
+
+</ul>
+
+<form method="POST">
+    <textarea name="note" id="note" class="form-control" placeholder="Write your poem here..."> </textarea>
+    <br/>
+    <div align="center">
+        <button type="submit" class="btn btn-primary"> Add Note </button>
+
+    </div>
+
+</form>
+
+{% endblock %}
+
+new home.html whoch didnt work
+
+
+{% extends "base.html" %}
+{% block title %} Home {% endblock %}
+
+{% block content %}
+<h1 align="center"> Notes </h1>
+<ul class="list-group list-group-flush" id="notes">
+    {% for note in user.notes %}
+    <li class="list-group-item">
+        <strong>{{ note.theme }}:</strong> {{ note.data }}
+        <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+            <span aria-hidden="true"> &times; </span>
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+
+<form method="POST">
+    <div class="form-group">
+        <textarea name="note" id="note" class="form-control" placeholder="Write your poem here..."></textarea>
+    </div>
+    <div class="form-group">
+        <label for="theme">Select Theme</label>
+        <select name="theme" id="theme" class="form-control">
+            <option value="Nature">Nature</option>
+            <option value="Romance">Romance</option>
+            <option value="Grief">Grief</option>
+            <option value="Self">Self</option>
+            <option value="Abstract">Abstract</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <br/>
+    <div align="center">
+        <button type="submit" class="btn btn-primary"> Add Note </button>
+    </div>
+</form>
+{% endblock %}
+
+ 

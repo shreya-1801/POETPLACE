@@ -1,0 +1,17 @@
+
+
+.poethub-title {
+    font-family: 'Lucida Handwriting', cursive;
+    color: #4A90E2;
+    font-size: 48px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.poethub-description {
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
